@@ -1,6 +1,0 @@
-@import "../util/vendor";
-
-// background-clip:  [ border-box | padding-box | content-box][, [ border-box | padding-box | content-box]]*
-@mixin background-clip($clip: padding-box) {
-    @include vendor($property: background-clip, $value: $clip, $o: false, $ms: false);
-}
