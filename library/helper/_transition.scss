@@ -1,0 +1,6 @@
+@import "../util/vendor";
+
+// [ <transition-property> || <transition-duration> || <transition-timing-function> || <transition-delay> ]
+@mixin transition($transition: all, $duration: 0.25s, $easing: linear, $delay: 0s) {
+    @include vendor($property: transition, $value: $transition $duration $easing $delay);
+}

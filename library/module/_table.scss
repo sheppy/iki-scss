@@ -1,0 +1,35 @@
+
+$FONT_LINE_HEIGHT: 18px !default;
+
+table {
+	width: 100%;
+	margin-bottom: $FONT_LINE_HEIGHT;
+	padding: 0;
+	border-collapse: separate;
+
+	th, td {
+		padding: 10px 10px 9px;
+		line-height: $FONT_LINE_HEIGHT * 0.75;
+		text-align: left;
+		vertical-align: middle;
+		border-bottom: 1px solid #ddd;
+	}
+
+	th {
+		padding-top: 9px;
+		font-weight: bold;
+		border-bottom-width: 2px;
+	}
+}
+
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+.zebra-striped {
+	tbody {
+		tr:nth-child(odd) td {
+			background-color: #f9f9f9;
+		}
+		tr:hover td {
+			background-color: #f5f5f5;
+		}
+	}
+}

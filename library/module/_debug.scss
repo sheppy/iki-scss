@@ -1,0 +1,152 @@
+@import "../helper/border-radius";
+@import "../helper/box-shadow";
+
+$DEBUG_ENABLED: false !default;
+
+$DEBUG_COLOR_ERROR: #f00 !default;
+$DEBUG_COLOR_WARNING: #fd0 !default;
+$DEBUG_COLOR_DEPRECATED: #a9a9a9 !default;
+
+
+@mixin debug($msg: "", $bg-color: #a9a9a9, $text-color: #fff) {
+	@if $DEBUG_ENABLED {
+		&:before {
+			content: $msg;
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: 9998;
+			padding: 2px 4px;
+			border: 1px solid rgba(0, 0, 0, 0.2);
+			@include border-radius(5px);
+			@include box-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+			font-size: 11px;
+			text-align: center;
+			color: $text-color;
+			background: $bg-color;
+			text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+		}
+	}
+}
+
+@mixin debug-hover($msg: "", $bg-color: #f00, $text-color: #fff) {
+	@if $DEBUG_ENABLED {
+		&:hover:after {
+			content: $msg;
+			display: block;
+			position: fixed;
+			top: 0;
+			right: 0;
+			z-index: 9999;
+			margin: 1em;
+			padding: 2px 4px;
+			border: 1px solid rgba(0, 0, 0, 0.2);
+			@include border-radius(5px);
+			@include box-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+			font-size: 11px;
+			text-align: center;
+			color: $text-color;
+			background: $bg-color;
+			text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+		}
+	}
+}
+
+
+
+
+
+
+
+@if $DEBUG_ENABLED {
+	// Link errors
+	a:not[href],
+	a[href=""] {
+		outline: 2px solid $DEBUG_COLOR_ERROR;
+		@include debug-hover("Link missing href attribute", $DEBUG_COLOR_ERROR);
+	}
+
+	// Link warnings
+	a[href="#"] {
+		outline: 2px solid $DEBUG_COLOR_WARNING;
+		@include debug-hover("Link href='#'", $DEBUG_COLOR_WARNING);
+	}
+
+	a[href^="javascript"] {
+		outline: 2px solid $DEBUG_COLOR_WARNING;
+		@include debug-hover("Link href has javascript", $DEBUG_COLOR_WARNING);
+	}
+
+	a:not([title]),
+	a[title=""] {
+		outline: 2px solid $DEBUG_COLOR_WARNING;
+		@include debug-hover("Link missing title attribute", $DEBUG_COLOR_WARNING);
+	}
+
+	// Image errors
+	img:not([alt]),
+	img[alt=""] {
+		outline: 2px solid $DEBUG_COLOR_ERROR;
+		@include debug-hover("Image missing alt attribute", $DEBUG_COLOR_ERROR);
+	}
+
+	// Misc errors
+	label:not([for]), label[for=""] {
+		outline: 2px solid $DEBUG_COLOR_ERROR;
+		@include debug-hover("Label missing for attribute", $DEBUG_COLOR_ERROR);
+	}
+
+	input:not([name]), input[name=""],
+	select:not([name]), select[name=""],
+	textarea:not([name]), textarea[name=""] {
+		outline: 2px solid $DEBUG_COLOR_ERROR;
+		@include debug-hover("Form element missing name attribute", $DEBUG_COLOR_ERROR);
+	}
+
+	abbr:not([title]), abbr[title=""] {
+		outline: 2px solid $DEBUG_COLOR_ERROR;
+		@include debug-hover("Abbr missing title attribute", $DEBUG_COLOR_ERROR);
+	}
+
+	[class=""] {
+		outline: 2px solid $DEBUG_COLOR_ERROR;
+		@include debug-hover("Element has blank class attribute", $DEBUG_COLOR_ERROR);
+	}
+
+	[id=""] {
+		outline: 2px solid $DEBUG_COLOR_ERROR;
+		@include debug-hover("Element has blank id attribute", $DEBUG_COLOR_ERROR);
+	}
+
+	table:not([summary]),
+	table[summary=""] {
+		outline: 2px solid $DEBUG_COLOR_ERROR;
+		@include debug-hover("Table missing summary attribute", $DEBUG_COLOR_ERROR);
+	}
+
+	// Misc warnings
+	[style] {
+		outline: 2px solid $DEBUG_COLOR_WARNING;
+		@include debug-hover("Element has inline styles", $DEBUG_COLOR_WARNING);
+	}
+
+	// Empty elements
+	div:empty,
+	span:empty,
+	li:empty,
+	p:empty,
+	td:empty,
+	th:empty {
+		border: 2px solid $DEBUG_COLOR_WARNING;
+		@include debug-hover("Empty element!", $DEBUG_COLOR_WARNING);
+	}
+
+	// Deprecated / crap
+	font, center, b, big, i, applet, basefont, frame, frameset,
+	isindex, s, strike, u, dir, noframes, xmp,
+	acronym, tt, marquee, plaintext {
+		border: 2px solid $DEBUG_COLOR_DEPRECATED;
+		@include debug-hover("Deprecated element", $DEBUG_COLOR_DEPRECATED);
+	}
+}

@@ -1,0 +1,47 @@
+
+$FONT_LINE_HEIGHT: 18px !default;
+
+
+// =============================================================================
+//	Lists
+// =============================================================================
+
+// Unordered and Ordered lists
+ul,
+ol {
+	margin: 0 0 $FONT_LINE_HEIGHT;
+	padding: 0 0 0 25px;
+
+	// Fix nested margins
+	ul, ol {
+		margin-bottom: 0;
+	}
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+#nav, nav {
+    ul, ol {
+		list-style: none;
+		list-style-image: none;
+	}
+}
+
+// Description Lists
+dl {
+	margin-bottom: $FONT_LINE_HEIGHT;
+
+	dt {
+		font-weight: 700;
+	}
+
+	dd {
+		margin-left: $FONT_LINE_HEIGHT / 2;
+	}
+}

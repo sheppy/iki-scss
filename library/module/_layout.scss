@@ -1,0 +1,21 @@
+@import "../helper/clearfix";
+@import "debug";
+
+.container {
+    @include clearfix;
+    position: relative;
+	margin: 0 auto;
+	max-width: 300px;
+
+	@media only screen and (min-width: 480px) and (max-width: 767px) {
+		max-width: 460px;
+	}
+
+	@media only screen and (min-width: 768px) and (max-width: 959px) {
+		max-width: 720px;
+	}
+
+	@media only screen and (min-width: 960px) {
+		max-width: 960px;
+	}
+}

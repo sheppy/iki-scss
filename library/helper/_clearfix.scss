@@ -1,0 +1,16 @@
+@mixin clear {
+	overflow: hidden;
+}
+
+@mixin clearfix {
+	&:after {
+		visibility: hidden;
+		display: block;
+		font-size: 0;
+		content: " ";
+		clear: both;
+		height: 0;
+	}
+
+	*zoom: 1; // IE 6 & 7
+}
