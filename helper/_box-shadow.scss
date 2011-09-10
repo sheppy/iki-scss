@@ -1,0 +1,6 @@
+@import "../util/vendor";
+
+// inset? && [ <offset-x> <offset-y> <blur-radius>? <spread-radius>? <color>? ] | none
+@mixin box-shadow($shadow: 0 0 1em #000) {
+    @include vendor($property: box-shadow, $value: $shadow, $o: false, $ms: false);
+}

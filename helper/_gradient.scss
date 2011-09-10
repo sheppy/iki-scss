@@ -1,0 +1,15 @@
+@import "../util/vendor";
+
+@mixin gradient-horizontal($start-color: #000, $end-color: #fff) {
+	background-color: $end-color;
+	background-repeat: repeat-x;
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, $start-color), color-stop(100%, $end-color));
+	@include vendor-property($property: background-image, $value: "linear-gradient(left, #{$start-color}, #{$end-color})");
+}
+
+@mixin gradient-vertical($start-color: #000, $end-color: #fff) {
+	background-color: $end-color;
+	background-repeat: repeat-x;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $start-color), color-stop(100%, $end-color));
+	@include vendor-property($property: background-image, $value: "linear-gradient(#{$start-color}, #{$end-color})");
+}

@@ -1,0 +1,6 @@
+@import "../util/vendor";
+
+// <transform-function> [<transform-function>]* | none
+@mixin transform($transform) {
+	@include vendor($property: transform, $value: $transform);
+}

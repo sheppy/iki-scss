@@ -1,0 +1,29 @@
+$PATH_FONT: "/assets/font/" !default;
+
+@mixin font-face($family, $font) {
+	font-family: $family;
+	src: url("#{$font}.eot?#iefix") format("embedded-opentype"),
+		url("#{$font}.woff") format("woff"),
+		url("#{$font}.ttf")  format("truetype"),
+		url("#{$font}.svg#svgFontName") format("svg");
+}
+
+@mixin font-stack-arial {
+	font-family: Arial, sans-serif;
+}
+
+@mixin font-stack-courier {
+	font-family: "Courier New", Courier, monospace;
+}
+
+@mixin font-stack-helvetica {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@mixin font-stack-georgia {
+	font-family: "Georgia", Times New Roman, Times, serif;
+}
+
+@mixin font-stack-monaco {
+	font-family: Monaco, "Andale Mono", "Courier New", monospace;
+}

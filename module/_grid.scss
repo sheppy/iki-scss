@@ -1,0 +1,40 @@
+$GRID_COLUMNS: 16 !default;
+$GRID_USE_HELPERS: true !default;
+
+$GRID_COLUMN_WIDTH: 40px !default;
+$GRID_GUTTER_WIDTH: 20px !default;
+
+@function grid-width($column-span: 1) {
+	@return $column-span * $GRID_COLUMN_WIDTH + ($column-span - 1) * $GRID_GUTTER_WIDTH;
+}
+
+@mixin grid-column($column-span: 1, $last: false) {
+	width: grid-width($column-span);
+	float: left;
+	display: inline;
+
+	@if (not $last and $column-span != $GRID_COLUMNS) {
+		margin-right: $GRID_GUTTER_WIDTH;
+	}
+}
+
+
+
+/*
+.offset(@columnOffset: 1) {
+	margin-left: (@gridColumnWidth * @columnOffset) + (@gridGutterWidth * (@columnOffset - 1)) + @extraSpace;
+}
+*/
+
+// Generate non-semantic helper classes
+@if ($GRID_USE_HELPERS) {
+	@for $i from 1 through $GRID_COLUMNS {
+		.grid-#{$i} {
+			@include grid-column($i);
+		}
+	}
+
+	.grid-last {
+		margin-right: 0;
+	}
+}
