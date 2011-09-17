@@ -16,8 +16,15 @@ $GRID_GUTTER_WIDTH: 20px !default;
 	@if (not $last and $column-span != $GRID_COLUMNS) {
 		margin-right: $GRID_GUTTER_WIDTH;
 	}
+	@else {
+		margin-right: 0;
+	}
 }
 
+
+@mixin grid-column-prefix($column-span: 1) {
+	padding-left: grid-width($column-span) + $GRID_GUTTER_WIDTH;
+}
 
 
 /*
