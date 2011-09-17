@@ -1,17 +1,19 @@
-$FONT_LINE_HEIGHT: 18px !default;
+$FONT_SIZE: 13px !default;
+$FONT_LINE_HEIGHT: 1.4 !default;
+$FONT_LINE_HEIGHT_PIXELS: $FONT_LINE_HEIGHT * $FONT_SIZE !default;
 
 $FONT_COLOR: #444 !default;
 $FONT_COLOR_DARKER: darken($FONT_COLOR, 50%) !default;
 $FONT_COLOR_LIGHTER: lighten($FONT_COLOR, 50%) !default;
 
 form {
-	margin-bottom: $FONT_LINE_HEIGHT;
+	margin-bottom: $FONT_LINE_HEIGHT_PIXELS;
 }
 
 // Groups of fields with labels on top (legends)
 fieldset {
-	margin-bottom: $FONT_LINE_HEIGHT;
-	padding-top: $FONT_LINE_HEIGHT;
+	margin-bottom: $FONT_LINE_HEIGHT_PIXELS;
+	padding-top: $FONT_LINE_HEIGHT_PIXELS;
 
 	legend {
 		display: block;
@@ -42,7 +44,7 @@ textarea,
 select {
 	display: inline-block;
 	width: 210px;
-	height: $FONT_LINE_HEIGHT;
+	height: $FONT_LINE_HEIGHT_PIXELS;
 	padding: 4px;
 	font-size: 13px;
 	line-height: $FONT_LINE_HEIGHT;
@@ -80,7 +82,7 @@ input[type=submit] {
 
 select,
 input[type=file] {
-	height: $FONT_LINE_HEIGHT * 1.5;
+	height: $FONT_LINE_HEIGHT_PIXELS * 1.5;
 	line-height: $FONT_LINE_HEIGHT * 1.5;
 }
 

@@ -1,6 +1,6 @@
-
-$FONT_LINE_HEIGHT: 18px !default;
 $FONT_SIZE: 13px !default;
+$FONT_LINE_HEIGHT: 1.4 !default;
+$FONT_LINE_HEIGHT_PIXELS: $FONT_LINE_HEIGHT * $FONT_SIZE !default;
 
 $FONT_SIZE_H1: 30px !default;
 $FONT_SIZE_H2: 24px !default;
@@ -30,7 +30,7 @@ body {
 
 // Paragraphs
 p {
-	margin-bottom: $FONT_LINE_HEIGHT / 2;
+	margin-bottom: $FONT_LINE_HEIGHT_PIXELS;
 
 	small {
 		font-size: $FONT_SIZE - 2;
@@ -42,7 +42,8 @@ p {
 a {
 	color: $LINK_COLOR;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		color: $LINK_COLOR_HOVER;
 		@if ($LINK_HOVER_UNDERLINE) {
 			text-decoration: underline;
@@ -62,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	margin-bottom: $FONT_LINE_HEIGHT;
+	margin-bottom: $FONT_LINE_HEIGHT_PIXELS;
 	font-size: $FONT_SIZE_H1;
 	line-height: $FONT_LINE_HEIGHT * 2;
 
@@ -113,14 +114,15 @@ h6 {
 
 // Horizontal rules
 hr {
-	margin: 0 0 $FONT_LINE_HEIGHT;
+	margin: 0 0 $FONT_LINE_HEIGHT_PIXELS;
 	border: 0;
 	border-bottom: 1px solid $HR_COLOR;
+	background-color: transparent;
 }
 
 // Blockquotes
 blockquote {
-	margin-bottom: $FONT_LINE_HEIGHT;
+	margin-bottom: $FONT_LINE_HEIGHT_PIXELS;
 	border-left: 5px solid #eee;
 	padding-left: 15px;
 	font-size: $FONT_SIZE + 1;
@@ -142,5 +144,5 @@ blockquote {
 // Addresses
 address {
 	display: block;
-	margin-bottom: $FONT_LINE_HEIGHT;
+	margin-bottom: $FONT_LINE_HEIGHT_PIXELS;
 }

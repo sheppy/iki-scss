@@ -1,9 +1,10 @@
-
-$FONT_LINE_HEIGHT: 18px !default;
+$FONT_SIZE: 13px !default;
+$FONT_LINE_HEIGHT: 1.4 !default;
+$FONT_LINE_HEIGHT_PIXELS: $FONT_LINE_HEIGHT * $FONT_SIZE !default;
 
 table {
 	width: 100%;
-	margin-bottom: $FONT_LINE_HEIGHT;
+	margin-bottom: $FONT_LINE_HEIGHT_PIXELS;
 	padding: 0;
 	border-collapse: separate;
 
