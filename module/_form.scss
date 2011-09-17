@@ -33,7 +33,11 @@ label {
 	color: $FONT_COLOR_DARKER;
 }
 
-// Checkboxs and radio buttons
+label[for] {
+	cursor: pointer;
+}
+
+// Checkboxes and radio buttons
 input[type=checkbox],
 input[type=radio] {
 	cursor: pointer;
@@ -103,14 +107,35 @@ select,
 textarea {
 	@include transition(border linear .2s, box-shadow linear .2s);
 	@include box-shadow(inset 0 1px 3px rgba(0,0,0,.1));
+
+	&:focus {
+		outline: none;
+		border-color: rgba(82,168,236,.8);
+		@include box-shadow("inset 0 1px 3px rgba(0,0,0,.1), 0 0 8px rgba(82,168,236,.6)");
+	}
 }
-input:focus,
-select:focus,
-textarea:focus {
+
+:invalid {
+	@include box-shadow(none);
+}
+
+:-moz-submit-invalid {
+	@include box-shadow(none);
+}
+
+:valid:focus {
 	outline: none;
-	border-color: rgba(82,168,236,.8);
-	@include box-shadow("inset 0 1px 3px rgba(0,0,0,.1), 0 0 8px rgba(82,168,236,.6)");
+	border-color: rgba(0,200,0,.8);
+	@include box-shadow("inset 0 1px 3px rgba(0,0,0,.1), 0 0 8px rgba(0,200,0,.6)");
 }
+
+:-moz-ui-invalid {
+	border-color: rgba(255,0,0,.8);
+}
+:-moz-ui-invalid:focus {
+	border-color: rgba(82,168,236,.8);
+}
+
 
 // Turn off focus for disabled (read-only) form elements
 input[readonly]:focus,
@@ -126,10 +151,11 @@ input.disabled {
 
 .form-row {
 	@include clearfix;
-}
+	margin-bottom: $FONT_LINE_HEIGHT_PIXELS;
 
-.form-row label {
-	float: left;
-	width: 130px;
-	text-align: right;
+	label {
+		float: left;
+		width: 130px;
+		text-align: right;
+	}
 }
