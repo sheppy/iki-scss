@@ -3,10 +3,10 @@ $PATH_FONT: "/assets/font/" !default;
 @mixin font-face($family, $font) {
     @font-face {
 		font-family: $family;
-		src: url("#{$font}.eot?#iefix") format("embedded-opentype"),
-			url("#{$font}.woff") format("woff"),
-			url("#{$font}.ttf")  format("truetype"),
-			url("#{$font}.svg#svgFontName") format("svg");
+		src: url("#{$PATH_FONT}#{$font}.eot?#iefix") format("embedded-opentype"),
+			url("#{$PATH_FONT}#{$font}.woff") format("woff"),
+			url("#{$PATH_FONT}#{$font}.ttf")  format("truetype"),
+			url("#{$PATH_FONT}#{$font}.svg#svgFontName") format("svg");
 	}
 }
 
