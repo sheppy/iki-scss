@@ -1,0 +1,23 @@
+//------------------------------------------------------------------------------
+// Text shadow
+@mixin text-shadow($x: 5px, $y: 5px, $blur: 5px, $color: #000) {
+	// Check if we have supplied a unit
+	@if unitless($x) and $x != 0  {
+		@warn "Assuming x #{$x} to be in pixels";
+		$x: 1px * $x;
+	}
+
+	// Check if we have supplied a unit
+	@if unitless($y) and $y != 0  {
+		@warn "Assuming y #{$y} to be in pixels";
+		$y: 1px * $y;
+	}
+
+	// Check if we have supplied a unit
+	@if unitless($blur) and $blur != 0  {
+		@warn "Assuming blur #{$blur} to be in pixels";
+		$blur: 1px * $blur;
+	}
+
+	text-shadow: $x $y $blur $color;
+}
