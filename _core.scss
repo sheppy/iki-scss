@@ -3,11 +3,12 @@
 @import "util/vendor";
 
 // Helpers
+@import "helper/background-clip";
 @import "helper/border-radius";
 @import "helper/box-shadow";
-@import "helper/transform";
+@import "helper/clearfix";
 @import "helper/gradient";
+@import "helper/min-height";
+@import "helper/transform";
 @import "helper/transition";
 @import "helper/translucent";
-@import "helper/clearfix";
-@import "helper/background-clip";
