@@ -2,8 +2,9 @@
 @import "../helper/box-shadow";
 @import "font";
 
-
-$FONT_LINE_HEIGHT: 18px !default;
+$FONT_SIZE: 13px !default;
+$FONT_LINE_HEIGHT: 1.4 !default;
+$FONT_LINE_HEIGHT_PIXELS: $FONT_LINE_HEIGHT * $FONT_SIZE !default;
 
 $CODE_BACKGROUND: #FEFBF3 !default;
 //$CODE_BACKGROUND: #f5f5f5 !default;
@@ -25,8 +26,8 @@ code {
 
 pre {
 	display: block;
-	padding: $FONT_LINE_HEIGHT / 2;
-	margin: 0 0 $FONT_LINE_HEIGHT;
+	padding: $FONT_LINE_HEIGHT_PIXELS / 2;
+	margin: 0 0 $FONT_LINE_HEIGHT_PIXELS;
 	line-height: $FONT_LINE_HEIGHT;
 	border: 1px solid #ccc;
 	border: 1px solid rgba(0,0,0,.15);

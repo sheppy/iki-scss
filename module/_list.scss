@@ -1,5 +1,6 @@
-
-$FONT_LINE_HEIGHT: 18px !default;
+$FONT_SIZE: 13px !default;
+$FONT_LINE_HEIGHT: 1.4 !default;
+$FONT_LINE_HEIGHT_PIXELS: $FONT_LINE_HEIGHT * $FONT_SIZE !default;
 
 
 // =============================================================================
@@ -9,7 +10,7 @@ $FONT_LINE_HEIGHT: 18px !default;
 // Unordered and Ordered lists
 ul,
 ol {
-	margin: 0 0 $FONT_LINE_HEIGHT;
+	margin: 0 0 $FONT_LINE_HEIGHT_PIXELS;
 	padding: 0 0 0 25px;
 
 	// Fix nested margins
@@ -35,13 +36,13 @@ ol {
 
 // Description Lists
 dl {
-	margin-bottom: $FONT_LINE_HEIGHT;
+	margin-bottom: $FONT_LINE_HEIGHT_PIXELS;
 
 	dt {
 		font-weight: 700;
 	}
 
 	dd {
-		margin-left: $FONT_LINE_HEIGHT / 2;
+		margin-left: $FONT_LINE_HEIGHT_PIXELS / 2;
 	}
 }
